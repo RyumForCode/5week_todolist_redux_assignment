@@ -65,6 +65,12 @@ const todos = (state = initialState, action) => {
         counter : state.counter + 1,
       };
 
+    case DELETE_TODO:
+      return {
+        ...state,
+        todos: [...state.todos.filter(val => val.id !== action.payload)]
+      }
+
     case TOGGLE_STATUS_TODO:
       return {
         ...state,
