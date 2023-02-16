@@ -4,11 +4,7 @@ import store from "./redux/config/configStore";
 import Router from "./shared/Router";
 
 const App = () => {
-  return (
-    <Provider store = {store}>
-      <Router />;
-    </Provider>
-  )
+  return  <Router />;
 };
 
 export default App;

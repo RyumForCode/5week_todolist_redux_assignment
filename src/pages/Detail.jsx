@@ -6,9 +6,9 @@ import { getTodoByID } from "../redux/modules/todos.js";
 
 const Detail = () => {
   const dispatch = useDispatch();
-  const todo = useSelector((state) => state.todos.todo);
-
+  const todo = useSelector((state) => state.todos.todos);
   const { id } = useParams();
+  const findData = todo.find(v => v.id === Number(id));
   const navigate = useNavigate();
 
   return (
@@ -16,7 +16,7 @@ const Detail = () => {
       <StDialog>
         <div>
           <StDialogHeader>
-            <div>ID :{todo.id}</div>
+            <div>ID :{findData.id}</div>
             <StButton
               borderColor="#ddd"
               onClick={() => {
@@ -26,8 +26,8 @@ const Detail = () => {
               이전으로
             </StButton>
           </StDialogHeader>
-          <StTitle>{todo.title}</StTitle>
-          <StBody>{todo.body}</StBody>
+          <StTitle>{findData.title}</StTitle>
+          <StBody>{findData.body}</StBody>
         </div>
       </StDialog>
     </StContainer>
